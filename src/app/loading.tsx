@@ -8,7 +8,7 @@ export default function Loading() {
         <div className="animate-pulse">
           <Image
             src="/carbon.png"
-            alt="Loading..."
+            alt="..."
             width={80}
             height={80}
             className="object-cover rounded-2xl animate-[spin_3s_linear_infinite] shadow-[0_0_20px_rgba(159,232,112,0.2)]"
@@ -19,7 +19,6 @@ export default function Loading() {
           className="text-sm font-bold tracking-widest uppercase animate-pulse"
           style={{ color: "#9fe870" }}
         >
-          Loading
         </p>
       </div>
     </div>
