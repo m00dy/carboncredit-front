@@ -42,7 +42,7 @@ export default async function HomePage({
             >
               carboncredit.io
             </h1>
-            <p className="mt-2 text-sm font-medium" style={{ color: "#868685" }}>
+            <p className="mt-2 text-sm font-medium" style={{ color: "#dcdcdc" }}>
               Community for carbon markets, renewables &amp; clean energy
             </p>
           </div>

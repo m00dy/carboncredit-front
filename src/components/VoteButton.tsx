@@ -67,18 +67,24 @@ export function VoteButton({
   }, [token, router, pending, voted, targetId, targetType]);
 
   return (
-    <div className="flex flex-col items-center gap-0.5 shrink-0 w-8">
+    <div className="flex flex-row items-center gap-1.5 shrink-0">
+      <span
+        className="text-xs font-semibold tabular-nums leading-none"
+        style={{ color: voted ? "var(--green-mid)" : "var(--ink-secondary)" }}
+      >
+        {score}
+      </span>
       <button
         onClick={handleVote}
         disabled={pending}
         aria-label={voted ? "Unvote" : "Upvote"}
         aria-pressed={voted}
         className={`vote-btn ${voted ? "voted" : ""}`}
-        style={{ opacity: pending ? 0.6 : 1 }}
+        style={{ opacity: pending ? 0.6 : 1, width: "1.25rem", height: "1.25rem" }}
       >
         <svg
-          width="10"
-          height="8"
+          width="8"
+          height="6"
           viewBox="0 0 10 8"
           fill="currentColor"
           aria-hidden="true"
@@ -86,12 +92,6 @@ export function VoteButton({
           <path d="M5 0L10 8H0L5 0Z" />
         </svg>
       </button>
-      <span
-        className="text-xs font-semibold tabular-nums leading-none"
-        style={{ color: voted ? "var(--green-mid)" : "var(--ink-secondary)" }}
-      >
-        {score}
-      </span>
     </div>
   );
 }

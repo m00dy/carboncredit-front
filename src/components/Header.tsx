@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "./AuthProvider";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 const NAV_LINKS = [
   { href: "/", label: "top" },
@@ -59,9 +60,9 @@ export function Header() {
                 href={href}
                 className="px-2 py-1 rounded transition-colors duration-100"
                 style={{
-                  color: isActive ? "#9fe870" : "#868685",
+                  color: isActive ? "#9fe870" : "#e0e0e0",
                   background: isActive
-                    ? "rgba(159,232,112,0.10)"
+                    ? "rgba(159,232,112,0.15)"
                     : "transparent",
                 }}
               >
@@ -108,6 +109,8 @@ export function Header() {
               </Link>
             </>
           )}
+          <div className="w-px h-4 bg-gray-700 mx-2" />
+          <ThemeSwitcher />
         </div>
       </div>
     </header>

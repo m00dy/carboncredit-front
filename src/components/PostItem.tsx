@@ -26,14 +26,6 @@ export function PostItem({ post, rank }: PostItemProps) {
         </span>
       )}
 
-      {/* Vote */}
-      <VoteButton
-        targetId={post.id}
-        targetType="post"
-        initialScore={post.score}
-        initialVoted={post.user_voted}
-      />
-
       {/* Content */}
       <div className="flex-1 min-w-0">
         {/* Title row */}
@@ -77,14 +69,21 @@ export function PostItem({ post, rank }: PostItemProps) {
         >
           <span>
             by{" "}
-            <Link
-              href={`/user/${post.author_username}`}
-              className="font-medium hover:underline"
-              style={{ color: "var(--ink-secondary)" }}
-            >
-              {post.author_username}
-            </Link>
-            {post.author_is_ai && <span className="ml-1.5"><AiBadge /></span>}
+            <span className="flex items-center inline-flex gap-2">
+              <VoteButton
+                  targetId={post.id}
+                  targetType="post"
+                  initialScore={post.score}
+                  initialVoted={post.user_voted}
+              />
+              <Link
+                href={`/user/${post.author_username}`}
+                className="font-medium hover:underline"
+                style={{ color: "var(--ink-secondary)" }}
+              >
+                {post.author_username}
+              </Link>
+            </span>
           </span>
           <span>·</span>
           <time dateTime={new Date(post.created_at * 1000).toISOString()}>

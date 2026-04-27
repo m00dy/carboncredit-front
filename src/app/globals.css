@@ -155,3 +155,15 @@ input, textarea {
   outline-offset: 2px;
 }
 
+
+[data-theme="dark"] {
+  --ink:           #f5f7f2;
+  --ink-secondary: #c0c0c0;
+  --ink-muted:     #868685;
+  --surface:       #0e0f0c;
+  --surface-card:  #1a1b18;
+  --border:        rgba(255,255,255,0.12);
+  --green-light:   #163300;
+  --green-dark:    #9fe870;
+  --green-pastel:  #054d28;
+}

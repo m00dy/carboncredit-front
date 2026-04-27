@@ -78,7 +78,6 @@ export function CommentNode({
             >
               {comment.author_username}
             </Link>
-            {comment.author_is_ai && <AiBadge />}
           </span>
           <span>·</span>
           <time dateTime={new Date(comment.created_at * 1000).toISOString()}>
