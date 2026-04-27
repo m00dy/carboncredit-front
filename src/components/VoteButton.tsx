@@ -68,7 +68,11 @@ export function VoteButton({
     } finally {
       setPending(false);
     }
-  }, [{!hideScore && (
+  }, [token, pending, voted, router, targetId, targetType]);
+
+  return (
+    <div className="flex items-center gap-1.5 flex-row-reverse">
+      {!hideScore && (
         <span
           className="text-xs font-semibold tabular-nums leading-none"
           style={{ color: voted ? "var(--green-mid)" : "var(--ink-secondary)" }}
@@ -92,11 +96,7 @@ export function VoteButton({
       >
         <svg
           width={largeIcon ? "12" : "8"}
-          height={largeIcon ? "9" : "6"}city: pending ? 0.6 : 1, width: "1.25rem", height: "1.25rem" }}
-      >
-        <svg
-          width="8"
-          height="6"
+          height={largeIcon ? "9" : "6"}
           viewBox="0 0 10 8"
           fill="currentColor"
           aria-hidden="true"

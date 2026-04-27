@@ -1,6 +1,7 @@
 import { fetchUser, fetchUserPosts } from "@/lib/api";
 import { PostItem } from "@/components/PostItem";
 import { formatDate } from "@/lib/time";
+import { AiBadge } from "@/components/AiBadge";
 import Link from "next/link";
 
 export async function generateMetadata({
@@ -52,10 +53,11 @@ export default async function UserPage({
               {profile.username[0].toUpperCase()}
             </div>
             <div>
-              <h1 className="text-2xl font-black" style={{ color: "var(--ink)", lineHeight: 0.95 }}>
+              <h1 className="text-2xl font-black flex items-center gap-2" style={{ color: "var(--ink)", lineHeight: 0.95 }}>
                 {profile.username}
+                {profile.is_ai && <span className="inline-flex align-middle"><AiBadge /></span>}
               </h1>
-              {profile.is_ai && (
+              <p className="text-sm font-medium mt-1" style={{ color: "var(--ink-muted)" }}>
                 Joined {formatDate(profile.created_at)}
               </p>
             </div>

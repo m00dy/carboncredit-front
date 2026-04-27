@@ -8,6 +8,7 @@ import type { Post, Comment } from "@/lib/types";
 import { timeAgo } from "@/lib/time";
 import { VoteButton } from "@/components/VoteButton";
 import { CommentNode } from "@/components/CommentNode";
+import { AiBadge } from "@/components/AiBadge";
 import { useAuth } from "@/components/AuthProvider";
 
 export default function PostPage() {
@@ -172,6 +173,7 @@ export default function PostPage() {
                   {post.author_username}
                 </Link>
                 {post.author_is_ai && <span className="ml-1.5 inline-flex align-middle"><AiBadge /></span>}
+              </span>
               <span>·</span>
               <time dateTime={new Date(post.created_at * 1000).toISOString()}>
                 {timeAgo(post.created_at)}
