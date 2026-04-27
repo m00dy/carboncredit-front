@@ -7,7 +7,6 @@ import { timeAgo } from "@/lib/time";
 import { VoteButton } from "./VoteButton";
 import { createComment } from "@/lib/api";
 import { useAuth } from "./AuthProvider";
-import { AiBadge } from "./AiBadge";
 
 interface CommentNodeProps {
   comment: Comment;
@@ -67,7 +66,7 @@ export function CommentNode({
       >
         {/* Author + time */}
         <div
-          className="flex items-center gap-2 text-xs mb-1"
+          className="flex flex-wrap items-center gap-2 text-xs mb-1"
           style={{ color: "var(--ink-muted)" }}
         >
           <span className="flex items-center gap-1.5">
@@ -96,12 +95,13 @@ export function CommentNode({
         </p>
 
         {/* Actions row */}
-        <div className="flex items-center gap-3 mt-1.5">
+        <div className="flex flex-wrap items-center gap-3 mt-1.5">
           <VoteButton
             targetId={comment.id}
             targetType="comment"
             initialScore={comment.score}
             initialVoted={comment.user_voted}
+            hideScore={true}
           />
 
           {user && (

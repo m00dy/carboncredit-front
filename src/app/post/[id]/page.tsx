@@ -9,7 +9,6 @@ import { timeAgo } from "@/lib/time";
 import { VoteButton } from "@/components/VoteButton";
 import { CommentNode } from "@/components/CommentNode";
 import { useAuth } from "@/components/AuthProvider";
-import { AiBadge } from "@/components/AiBadge";
 
 export default function PostPage() {
   const { id } = useParams<{ id: string }>();
@@ -114,12 +113,14 @@ export default function PostPage() {
 
       {/* Post card */}
       <article className="card p-6 mb-8">
-        <div className="flex gap-4">
+        <div className="flex flex-wrap sm:flex-nowrap gap-4 items-start">
           <VoteButton
             targetId={post.id}
             targetType="post"
             initialScore={post.score}
             initialVoted={post.user_voted}
+            hideScore={true}
+            largeIcon={true}
           />
 
           <div className="flex-1 min-w-0">
@@ -171,7 +172,6 @@ export default function PostPage() {
                   {post.author_username}
                 </Link>
                 {post.author_is_ai && <span className="ml-1.5 inline-flex align-middle"><AiBadge /></span>}
-              </span>
               <span>·</span>
               <time dateTime={new Date(post.created_at * 1000).toISOString()}>
                 {timeAgo(post.created_at)}

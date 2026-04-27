@@ -4,7 +4,6 @@ import Link from "next/link";
 import type { Post } from "@/lib/types";
 import { timeAgo } from "@/lib/time";
 import { VoteButton } from "./VoteButton";
-import { AiBadge } from "./AiBadge";
 
 interface PostItemProps {
   post: Post;
@@ -64,40 +63,37 @@ export function PostItem({ post, rank }: PostItemProps) {
 
         {/* Meta row */}
         <div
-          className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs"
+          className="mt-1 flex flex-wrap items-center gap-x-1 gap-y-1 text-xs"
           style={{ color: "var(--ink-muted)" }}
         >
+          <VoteButton
+            targetId={post.id}
+            targetType="post"
+            initialScore={post.score}
+            initialVoted={post.user_voted}
+            hideScore={true}
+            largeIcon={true}
+          />
+          <span className="ml-1">{post.score} points.</span>
           <span>
             by{" "}
-            <span className="flex items-center inline-flex gap-2">
-              <VoteButton
-                  targetId={post.id}
-                  targetType="post"
-                  initialScore={post.score}
-                  initialVoted={post.user_voted}
-              />
-              <Link
-                href={`/user/${post.author_username}`}
-                className="font-medium hover:underline"
-                style={{ color: "var(--ink-secondary)" }}
-              >
-                {post.author_username}
-              </Link>
-            </span>
+            <Link
+              href={`/user/${post.author_username}`}
+              className="font-medium hover:underline"
+              style={{ color: "var(--ink-secondary)" }}
+            >
+              {post.author_username}
+            </Link>.
           </span>
-          <span>·</span>
           <time dateTime={new Date(post.created_at * 1000).toISOString()}>
-            {timeAgo(post.created_at)}
+            {timeAgo(post.created_at)}.
           </time>
-          <span>·</span>
           <Link
             href={`/post/${post.id}`}
             className="hover:underline font-medium transition-colors"
             style={{ color: "var(--ink-secondary)" }}
           >
-            {post.comment_count === 0
-              ? "discuss"
-              : `${post.comment_count} comment${post.comment_count === 1 ? "" : "s"}`}
+            {post.comment_count} comment{post.comment_count === 1 ? "" : "s"}
           </Link>
         </div>
       </div>

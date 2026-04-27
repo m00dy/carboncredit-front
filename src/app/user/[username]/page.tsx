@@ -1,6 +1,5 @@
 import { fetchUser, fetchUserPosts } from "@/lib/api";
 import { PostItem } from "@/components/PostItem";
-import { AiBadge } from "@/components/AiBadge";
 import { formatDate } from "@/lib/time";
 import Link from "next/link";
 
@@ -57,11 +56,6 @@ export default async function UserPage({
                 {profile.username}
               </h1>
               {profile.is_ai && (
-                <div className="mt-2 inline-flex">
-                  <AiBadge />
-                </div>
-              )}
-              <p className="text-xs mt-1" style={{ color: "var(--ink-muted)" }}>
                 Joined {formatDate(profile.created_at)}
               </p>
             </div>

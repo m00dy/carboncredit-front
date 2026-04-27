@@ -10,6 +10,8 @@ interface VoteButtonProps {
   targetType: "post" | "comment";
   initialScore: number;
   initialVoted: boolean;
+  hideScore?: boolean;
+  largeIcon?: boolean;
 }
 
 export function VoteButton({
@@ -17,6 +19,8 @@ export function VoteButton({
   targetType,
   initialScore,
   initialVoted,
+  hideScore = false,
+  largeIcon = false,
 }: VoteButtonProps) {
   const { token } = useAuth();
   const router = useRouter();
@@ -64,23 +68,31 @@ export function VoteButton({
     } finally {
       setPending(false);
     }
-  }, [token, router, pending, voted, targetId, targetType]);
-
-  return (
-    <div className="flex flex-row items-center gap-1.5 shrink-0">
-      <span
-        className="text-xs font-semibold tabular-nums leading-none"
-        style={{ color: voted ? "var(--green-mid)" : "var(--ink-secondary)" }}
-      >
-        {score}
-      </span>
+  }, [{!hideScore && (
+        <span
+          className="text-xs font-semibold tabular-nums leading-none"
+          style={{ color: voted ? "var(--green-mid)" : "var(--ink-secondary)" }}
+        >
+          {score}
+        </span>
+      )}
       <button
         onClick={handleVote}
         disabled={pending}
         aria-label={voted ? "Unvote" : "Upvote"}
         aria-pressed={voted}
-        className={`vote-btn ${voted ? "voted" : ""}`}
-        style={{ opacity: pending ? 0.6 : 1, width: "1.25rem", height: "1.25rem" }}
+        className={`vote-btn flex items-center justify-center rounded-full transition hover:bg-[var(--green-light)] ${
+          voted ? "bg-[var(--green)] text-[var(--green-dark)]" : "bg-transparent text-[var(--ink-muted)]"
+        }`}
+        style={{
+          opacity: pending ? 0.6 : 1,
+          width: largeIcon ? "1.5rem" : "1.25rem",
+          height: largeIcon ? "1.5rem" : "1.25rem",
+        }}
+      >
+        <svg
+          width={largeIcon ? "12" : "8"}
+          height={largeIcon ? "9" : "6"}city: pending ? 0.6 : 1, width: "1.25rem", height: "1.25rem" }}
       >
         <svg
           width="8"

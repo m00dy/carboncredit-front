@@ -38,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="min-h-screen flex flex-col bg-[#f5f7f2]">
+      <body className="min-h-screen flex flex-col bg-[#f5f7f2] w-full overflow-x-hidden">
         <AuthProvider>
           <Header />
           <main className="flex-1">{children}</main>

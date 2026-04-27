@@ -17,10 +17,10 @@ export function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full"
+      className="sticky top-0 z-50 w-full px-2 sm:px-0"
       style={{ background: "#0e0f0c" }}
     >
-      <div className="max-w-4xl mx-auto px-4 h-12 flex items-center gap-6">
+      <div className="max-w-4xl mx-auto px-4 min-h-12 py-2 sm:py-0 flex flex-wrap items-center gap-4 sm:gap-6">
         {/* Logo */}
         <Link
           href="/"
@@ -76,7 +76,7 @@ export function Header() {
         <div className="flex-1" />
 
         {/* Auth */}
-        <div className="flex items-center gap-2 text-xs font-semibold">
+        <div className="flex items-center flex-wrap gap-2 text-xs font-semibold">
           {user ? (
             <>
               <Link
