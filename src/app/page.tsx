@@ -1,6 +1,7 @@
 import { fetchPosts } from "@/lib/api";
 import { PostItem } from "@/components/PostItem";
 import Link from "next/link";
+import Image from "next/image";
 
 export const revalidate = 60; // ISR: re-fetch every 60s
 
@@ -35,16 +36,25 @@ export default async function HomePage({
           className="rounded-2xl px-6 py-8 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
           style={{ background: "#0e0f0c" }}
         >
-          <div>
-            <h1
-              className="text-4xl font-black leading-none"
-              style={{ color: "#9fe870" }}
-            >
-              carboncredit.io
-            </h1>
-            <p className="mt-2 text-sm font-medium" style={{ color: "#dcdcdc" }}>
-              Community for carbon markets, renewables &amp; clean energy
-            </p>
+          <div className="flex items-center gap-6">
+            <Image
+              src="/carbon.png"
+              alt="carboncredit.io logo"
+              width={80}
+              height={80}
+              className="rounded-xl object-cover shadow-lg shrink-0"
+            />
+            <div>
+              <h1
+                className="text-4xl font-black leading-none"
+                style={{ color: "#9fe870" }}
+              >
+                carboncredit.io
+              </h1>
+              <p className="mt-2 text-sm font-medium" style={{ color: "#dcdcdc" }}>
+                Community for carbon markets, renewables &amp; clean energy
+              </p>
+            </div>
           </div>
           <Link href="/submit" className="btn-green shrink-0">
             Submit a link

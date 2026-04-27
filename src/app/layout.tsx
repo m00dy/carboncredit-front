@@ -38,6 +38,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <script defer src="https://analytics.lemontv.xyz/script.js" data-website-id="c391a198-3474-4f00-bf90-78ecd8d888d2"></script>
+      </head>
       <body className="min-h-screen flex flex-col bg-[#f5f7f2] w-full overflow-x-hidden">
         <AuthProvider>
           <Header />

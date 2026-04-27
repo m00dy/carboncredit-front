@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useAuth } from "./AuthProvider";
 import { ThemeSwitcher } from "./ThemeSwitcher";
@@ -27,14 +28,14 @@ export function Header() {
           className="flex items-center gap-2 shrink-0 group"
           aria-label="carboncredit.io home"
         >
-          {/* Leaf icon */}
-          <span
-            className="text-lg leading-none select-none"
-            aria-hidden="true"
-            style={{ color: "#9fe870" }}
-          >
-            ◈
-          </span>
+          {/* Logo image */}
+          <Image
+            src="/carbon.png"
+            alt="carboncredit.io logo"
+            width={24}
+            height={24}
+            className="rounded-[4px] object-cover"
+          />
           <span
             className="font-black text-sm tracking-tight"
             style={{ color: "#9fe870", lineHeight: 1 }}
