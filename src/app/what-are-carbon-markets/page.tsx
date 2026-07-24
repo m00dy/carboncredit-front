@@ -4,11 +4,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "What are carbon markets? A community introduction – carboncredit.io",
   description:
-    "Learn how carbon markets work — compliance vs voluntary markets, carbon pricing, cap-and-trade, and the key trends shaping the global carbon market in 2026.",
+    "How carbon markets work: compliance vs voluntary markets, carbon pricing, cap-and-trade, and the trends shaping the global carbon market in 2026.",
   openGraph: {
     title: "What are carbon markets? A community introduction",
     description:
-      "Understand carbon markets: compliance vs voluntary, cap-and-trade, carbon pricing, and market trends.",
+      "How compliance and voluntary carbon markets work, cap-and-trade, carbon pricing, and market trends.",
     type: "article",
   },
 };
@@ -47,7 +47,7 @@ export default function WhatAreCarbonMarketsPage() {
           >
             Carbon markets are trading systems where carbon credits and
             allowances are bought and sold. They turn carbon emissions into a
-            priced commodity — creating a financial incentive to reduce
+            priced commodity, creating a financial incentive to reduce
             pollution. One credit or allowance equals one metric ton of CO₂e.
           </p>
 
@@ -108,20 +108,20 @@ export default function WhatAreCarbonMarketsPage() {
           <Section title="How compliance markets work: cap-and-trade">
             <ol className="list-decimal pl-5 space-y-2">
               <li>
-                <strong>A government sets a cap</strong> — a limit on total
+                <strong>A government sets a cap</strong>, a limit on total
                 emissions for covered sectors (power, industry, aviation).
               </li>
               <li>
-                <strong>Allowances are distributed</strong> — either freely
+                <strong>Allowances are distributed</strong>, either freely
                 allocated to emitters or sold at auction.
               </li>
               <li>
-                <strong>Companies trade</strong> — those that reduce emissions
+                <strong>Companies trade</strong>, those that reduce emissions
                 below their cap can sell surplus allowances. Those that exceed
                 must buy.
               </li>
               <li>
-                <strong>The cap tightens over time</strong> — reducing the total
+                <strong>The cap tightens over time</strong>, reducing the total
                 supply of allowances and driving up the carbon price.
               </li>
             </ol>
@@ -130,24 +130,24 @@ export default function WhatAreCarbonMarketsPage() {
           <Section title="Major carbon markets in 2026">
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong>EU Emissions Trading System (EU ETS)</strong> — The
+                <strong>EU Emissions Trading System (EU ETS)</strong>. The
                 world&apos;s largest carbon market. Covers ~40% of EU emissions.
                 Prices reached &euro;100/ton in 2023.
               </li>
               <li>
-                <strong>California Cap-and-Trade</strong> — Linked with
+                <strong>California Cap-and-Trade</strong>. Linked with
                 Qu&eacute;bec. Covers power, industry, and transport fuels.
               </li>
               <li>
-                <strong>China National ETS</strong> — Largest by covered
+                <strong>China National ETS</strong>. Largest by covered
                 emissions (power sector only, expanding to industry).
               </li>
               <li>
-                <strong>UK ETS</strong> — Replaced the EU ETS post-Brexit with
+                <strong>UK ETS</strong>. Replaced the EU ETS post-Brexit with
                 its own system.
               </li>
               <li>
-                <strong>CORSIA</strong> — UN aviation offsetting scheme. Airlines
+                <strong>CORSIA</strong>. UN aviation offsetting scheme. Airlines
                 must offset emissions above 2019 levels.
               </li>
             </ul>
@@ -155,28 +155,27 @@ export default function WhatAreCarbonMarketsPage() {
 
           <Section title="The voluntary carbon market (VCM)">
             <p>
-              The VCM enables companies outside regulated sectors to buy carbon
-              credits from projects that reduce or remove emissions. It was
-              valued at ~$2 billion in 2023 with significant growth projected.
+              Companies outside regulated sectors buy carbon credits from
+              projects that reduce or remove emissions. The VCM was worth ~$2
+              billion in 2023.
             </p>
             <p>
-              <strong>Key principle: additionality.</strong> A carbon credit is
-              only legitimate if the emission reduction would not have happened
-              without the project. This is the central challenge — and
-              controversy — of the VCM.
+              A carbon credit only counts if the emission reduction would not
+              have happened without the project. This test, additionality, is
+              the central challenge of the VCM, and its central controversy.
             </p>
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong>Nature-based credits</strong> — Reforestation, avoided
+                <strong>Nature-based credits</strong>. Reforestation, avoided
                 deforestation (REDD+), soil carbon. Largest volume, lower prices.
               </li>
               <li>
-                <strong>Tech-based removals</strong> — Direct air capture (DAC),
+                <strong>Tech-based removals</strong>. Direct air capture (DAC),
                 biochar, enhanced weathering, mineralization. Higher prices,
                 smaller scale.
               </li>
               <li>
-                <strong>Renewable energy credits</strong> — Wind, solar, hydro
+                <strong>Renewable energy credits</strong>. Wind, solar, hydro
                 projects that displace fossil fuel generation.
               </li>
             </ul>
@@ -185,22 +184,22 @@ export default function WhatAreCarbonMarketsPage() {
           <Section title="Key challenges & trends">
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong>Quality and integrity</strong> — Investigations have
+                <strong>Quality and integrity</strong>. Investigations have
                 revealed projects that overstated their impact. ICVCM&apos;s Core
                 Carbon Principles aim to establish a quality benchmark.
               </li>
               <li>
-                <strong>Article 6 of the Paris Agreement</strong> — Rules for
+                <strong>Article 6 of the Paris Agreement</strong>. Rules for
                 international carbon trading between countries are still being
                 finalized, with major implications for market structure.
               </li>
               <li>
-                <strong>Price divergence</strong> — Compliance allowances trade
+                <strong>Price divergence</strong>. Compliance allowances trade
                 at much higher prices than voluntary credits, reflecting
                 different levels of regulatory certainty.
               </li>
               <li>
-                <strong>Border carbon adjustments</strong> — The EU&apos;s CBAM
+                <strong>Border carbon adjustments</strong>. The EU&apos;s CBAM
                 imposes a carbon price on imports, pushing carbon pricing global.
               </li>
             </ul>
@@ -216,7 +215,7 @@ export default function WhatAreCarbonMarketsPage() {
                   className="font-medium hover:underline"
                   style={{ color: "var(--green-mid)" }}
                 >
-                  ICVCM — Core Carbon Principles
+                  ICVCM. Core Carbon Principles
                 </a>
               </li>
               <li>
@@ -238,7 +237,7 @@ export default function WhatAreCarbonMarketsPage() {
                   className="font-medium hover:underline"
                   style={{ color: "var(--green-mid)" }}
                 >
-                  Offset Guide — GHG Institute
+                  Offset Guide. GHG Institute
                 </a>
               </li>
               <li>
@@ -249,7 +248,7 @@ export default function WhatAreCarbonMarketsPage() {
                   className="font-medium hover:underline"
                   style={{ color: "var(--green-mid)" }}
                 >
-                  World Bank — Partnership for Market Implementation
+                  World Bank. Partnership for Market Implementation
                 </a>
               </li>
             </ul>

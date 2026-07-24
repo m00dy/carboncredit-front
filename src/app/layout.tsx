@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://carboncredit.io"),
   title: "carboncredit.io – Green Energy & Carbon Community",
   description:
-    "The community-curated link aggregator for carbon credits, renewables, and green energy. Share, discuss, and discover the latest in clean energy.",
+    "A link aggregator for carbon credits, renewables, and green energy. Share and discuss the latest in clean energy.",
   keywords: [
     "carbon credits",
     "green energy",

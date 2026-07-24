@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title:
     "What is the voluntary carbon market (VCM)? – carboncredit.io",
   description:
-    "Understand the voluntary carbon market — how VCM credits work, major standards like Verra and Gold Standard, pricing, additionality, and market trends in 2026.",
+    "How the voluntary carbon market works: VCM credits, major standards like Verra and Gold Standard, pricing, additionality, and market trends in 2026.",
   openGraph: {
     title: "What is the voluntary carbon market (VCM)?",
     description:
-      "How the voluntary carbon market works: standards, pricing, additionality, and key trends.",
+      "How the voluntary carbon market works: standards, pricing, additionality, and market trends.",
     type: "article",
   },
 };
@@ -47,26 +47,25 @@ export default function VoluntaryCarbonMarketPage() {
             style={{ color: "var(--ink-secondary)" }}
           >
             The voluntary carbon market (VCM) is where companies, organizations,
-            and individuals buy carbon credits on a voluntary basis — not
-            because they are legally required to, but to meet self-imposed
-            climate goals, net-zero pledges, or ESG commitments. It was valued
-            at approximately $2 billion in 2023.
+            and individuals buy carbon credits voluntarily. They're not legally
+            required to. They buy to meet self-imposed climate goals, net-zero
+            pledges, or ESG commitments. The VCM was worth ~$2 billion in 2023.
           </p>
 
           <Section title="How the VCM works">
             <ol className="list-decimal pl-5 space-y-2">
               <li>
                 <strong>A project developer</strong> creates a carbon reduction
-                or removal project — a reforestation effort, a renewable energy
+                or removal project, a reforestation effort, a renewable energy
                 installation, or a direct air capture facility.
               </li>
               <li>
-                <strong>An independent standard verifies it</strong> — Verra
+                <strong>An independent standard verifies it</strong>. Verra
                 (VCS), Gold Standard, Climate Action Reserve, or ACR confirms the
                 emissions reductions are real, measurable, and additional.
               </li>
               <li>
-                <strong>Credits are issued</strong> — one credit per ton of CO₂e
+                <strong>Credits are issued</strong>. One credit per ton of CO₂e
                 reduced or removed.
               </li>
               <li>
@@ -74,7 +73,7 @@ export default function VoluntaryCarbonMarketPage() {
                 developer, through a broker, or on an exchange.
               </li>
               <li>
-                <strong>The buyer retires the credits</strong> — claiming them
+                <strong>The buyer retires the credits</strong>, claiming them
                 against their own emissions, at which point they are permanently
                 removed from circulation.
               </li>
@@ -84,27 +83,27 @@ export default function VoluntaryCarbonMarketPage() {
           <Section title="Major standards & registries">
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong>Verra (Verified Carbon Standard)</strong> — The largest
+                <strong>Verra (Verified Carbon Standard)</strong>. The largest
                 VCM standard. Has issued over 1 billion credits. Under scrutiny
                 in 2023-2024 for over-crediting some forest projects.
               </li>
               <li>
-                <strong>Gold Standard</strong> — Founded by WWF. Emphasizes
+                <strong>Gold Standard</strong>. Founded by WWF. Emphasizes
                 sustainable development co-benefits alongside carbon reduction.
                 Higher prices, stricter methodology.
               </li>
               <li>
-                <strong>Climate Action Reserve (CAR)</strong> — US-focused
+                <strong>Climate Action Reserve (CAR)</strong>. US-focused
                 registry. Strong in forestry, livestock, and ozone-depleting
                 substance destruction.
               </li>
               <li>
-                <strong>American Carbon Registry (ACR)</strong> — The first
+                <strong>American Carbon Registry (ACR)</strong>. The first
                 private voluntary registry. Strong in forestry and agricultural
                 carbon.
               </li>
               <li>
-                <strong>Puro.earth</strong> — Focused exclusively on engineered
+                <strong>Puro.earth</strong>. Focused exclusively on engineered
                 carbon removal (biochar, carbonated building materials, etc.).
               </li>
             </ul>
@@ -112,10 +111,10 @@ export default function VoluntaryCarbonMarketPage() {
 
           <Section title="The central concept: additionality">
             <p>
-              A carbon credit is only legitimate if the emission reduction{" "}
+              A carbon credit only counts if the emission reduction{" "}
               <strong>would not have happened without the carbon revenue</strong>
-              . This is additionality — and it is the hardest thing to prove in
-              the VCM.
+              . This test, additionality, is the hardest thing to prove in the
+              VCM.
             </p>
             <p>A project fails additionality if:</p>
             <ul className="list-disc pl-5 space-y-2">
@@ -126,7 +125,7 @@ export default function VoluntaryCarbonMarketPage() {
             </ul>
             <p>
               Additionality is the reason some credits trade at $2/ton while
-              others trade at $200+/ton — buyers pay a premium for projects that
+              others trade at $200+/ton. Buyers pay a premium for projects that
               can credibly prove their impact.
             </p>
           </Section>
@@ -184,22 +183,22 @@ export default function VoluntaryCarbonMarketPage() {
           <Section title="Key controversies">
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong>Over-crediting</strong> — Multiple investigations (The
+                <strong>Over-crediting</strong>. Multiple investigations (The
                 Guardian, Die Zeit, SourceMaterial) found that some Verra REDD+
                 projects issued far more credits than their actual climate impact
                 justified.
               </li>
               <li>
-                <strong>Permanence</strong> — Forest carbon stored in trees can
+                <strong>Permanence</strong>. Forest carbon stored in trees can
                 be released by wildfire, disease, or logging. How do you
                 guarantee a credit is permanent?
               </li>
               <li>
-                <strong>Human rights</strong> — Some projects have been accused
+                <strong>Human rights</strong>. Some projects have been accused
                 of land grabs or displacing Indigenous communities.
               </li>
               <li>
-                <strong>Greenwashing</strong> — Companies buying cheap,
+                <strong>Greenwashing</strong>. Companies buying cheap,
                 low-quality credits to claim carbon neutrality without reducing
                 their own emissions.
               </li>
@@ -208,9 +207,9 @@ export default function VoluntaryCarbonMarketPage() {
 
           <Section title="The ICVCM and Core Carbon Principles">
             <p>
-              In response to quality concerns, the Integrity Council for the
-              Voluntary Carbon Market (ICVCM) introduced the{" "}
-              <strong>Core Carbon Principles (CCPs)</strong> — a global
+              After investigations exposed widespread over-crediting, the Integrity
+              Council for the Voluntary Carbon Market (ICVCM) introduced the{" "}
+              <strong>Core Carbon Principles (CCPs)</strong>, a global
               benchmark for high-integrity carbon credits. CCP-labeled credits
               must demonstrate:
             </p>
@@ -233,7 +232,7 @@ export default function VoluntaryCarbonMarketPage() {
                   className="font-medium hover:underline"
                   style={{ color: "var(--green-mid)" }}
                 >
-                  ICVCM — Core Carbon Principles
+                  ICVCM. Core Carbon Principles
                 </a>
               </li>
               <li>
@@ -266,7 +265,7 @@ export default function VoluntaryCarbonMarketPage() {
                   className="font-medium hover:underline"
                   style={{ color: "var(--green-mid)" }}
                 >
-                  Puro.earth — Engineered Carbon Removal
+                  Puro.earth. Engineered Carbon Removal
                 </a>
               </li>
               <li>

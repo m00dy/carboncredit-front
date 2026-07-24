@@ -4,11 +4,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "What are carbon credits? A community introduction – carboncredit.io",
   description:
-    "Learn what carbon credits are, how carbon markets work, voluntary vs compliance markets, and the difference between carbon credits and offsets. A community-maintained introduction.",
+    "What carbon credits are, how carbon markets work, voluntary vs compliance, and the difference between credits and offsets. A community-maintained introduction.",
   openGraph: {
     title: "What are carbon credits? A community introduction",
     description:
-      "Learn what carbon credits are, how carbon markets work, and the difference between credits and offsets.",
+      "What carbon credits are, how carbon markets work, and the difference between credits and offsets.",
     type: "article",
   },
 };
@@ -45,18 +45,18 @@ export default function WhatAreCarbonCreditsPage() {
           style={{ color: "var(--ink)" }}
         >
           <p className="text-lg leading-relaxed" style={{ color: "var(--ink-secondary)" }}>
-            A carbon credit is a tradeable permit that represents one metric ton
-            of CO₂ (or equivalent greenhouse gas) removed from or prevented from
-            entering the atmosphere. They are the basic unit of carbon markets —
-            the financial infrastructure that puts a price on carbon pollution.
+            A carbon credit is a tradeable permit. One credit represents one
+            metric ton of CO₂ (or equivalent greenhouse gas) removed from the
+            atmosphere or prevented from entering it. Carbon markets, the trading
+            systems built on these credits, put a price on carbon pollution.
           </p>
 
           <Section title="How they work">
             <ol className="list-decimal pl-5 space-y-2">
               <li>
-                <strong>A project reduces or removes emissions</strong> — e.g.,
-                a reforestation project, a wind farm replacing a coal plant, or a
-                direct air capture facility.
+                <strong>A project reduces or removes emissions.</strong> For
+                example: a reforestation project, a wind farm displacing a coal
+                plant, or a direct air capture facility.
               </li>
               <li>
                 <strong>That reduction is verified</strong> by a third-party
@@ -76,13 +76,13 @@ export default function WhatAreCarbonCreditsPage() {
           <Section title="Voluntary vs compliance markets">
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong>Compliance markets</strong> — Government-mandated
+                <strong>Compliance markets</strong>. Government-mandated
                 cap-and-trade systems (EU ETS, California Cap-and-Trade).
                 Companies must hold enough allowances to cover their emissions.
                 Prices are set by regulation and auction.
               </li>
               <li>
-                <strong>Voluntary carbon market (VCM)</strong> — Companies and
+                <strong>Voluntary carbon market (VCM)</strong>. Companies and
                 individuals buy credits voluntarily to meet net-zero pledges.
                 Prices vary based on project type, location, co-benefits, and
                 vintage.
@@ -133,26 +133,26 @@ export default function WhatAreCarbonCreditsPage() {
 
           <Section title="The market today">
             <p>
-              The voluntary carbon market was worth ~$2 billion in 2023 and is
-              projected to grow significantly as more companies adopt net-zero
-              targets. Key trends:
+              The voluntary carbon market was worth ~$2 billion in 2023. More
+              companies set net-zero targets every quarter, and demand for credits
+              follows:
             </p>
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong>Quality scrutiny</strong> — Media investigations have
+                <strong>Quality scrutiny</strong>. Media investigations have
                 exposed questionable offset projects. Buyers increasingly demand
                 high-integrity credits with verifiable additionality.
               </li>
               <li>
-                <strong>CORSIA</strong> — The UN aviation offsetting scheme is
+                <strong>CORSIA</strong>. The UN aviation offsetting scheme is
                 driving standardization.
               </li>
               <li>
-                <strong>Article 6</strong> — Paris Agreement rules for
+                <strong>Article 6</strong>. Paris Agreement rules for
                 international carbon trading are being finalized.
               </li>
               <li>
-                <strong>Nature-based vs tech-based</strong> — Reforestation
+                <strong>Nature-based vs tech-based</strong>. Reforestation
                 credits dominate volume, but engineered removals (DAC, biochar,
                 enhanced weathering) command premium prices.
               </li>
