@@ -17,9 +17,21 @@ describe("buildSiteSitemap", () => {
       "https://carboncredit.io"
     );
 
-    expect(sitemap.some((entry) => entry.url === "https://carboncredit.io/")).toBe(
-      true
-    );
+    expect(
+      sitemap.some((entry) => entry.url === "https://carboncredit.io/")
+    ).toBe(true);
+    expect(
+      sitemap.some(
+        (entry) =>
+          entry.url === "https://carboncredit.io/what-are-carbon-credits"
+      )
+    ).toBe(true);
+    expect(
+      sitemap.some(
+        (entry) =>
+          entry.url === "https://carboncredit.io/what-are-carbon-markets"
+      )
+    ).toBe(true);
     expect(
       sitemap.some((entry) => entry.url === "https://carboncredit.io/post/post-123")
     ).toBe(true);

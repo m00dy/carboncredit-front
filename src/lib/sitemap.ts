@@ -31,6 +31,18 @@ export function buildSiteSitemap(
       changeFrequency: "weekly",
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/what-are-carbon-credits`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/what-are-carbon-markets`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     ...entries.map((entry) => ({
       url: `${baseUrl}/post/${entry.id}`,
       lastModified: new Date(entry.updated_at * 1000),

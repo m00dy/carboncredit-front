@@ -14,6 +14,14 @@ export function Footer() {
         <span>·</span>
         <span>Community for carbon, renewables &amp; green energy</span>
         <span>·</span>
+        <a href="/what-are-carbon-credits" className="hover:underline">
+          what are carbon credits
+        </a>
+        <span>·</span>
+        <a href="/what-are-carbon-markets" className="hover:underline">
+          what are carbon markets
+        </a>
+        <span>·</span>
         <a href="/submit" className="hover:underline">
           submit link
         </a>
