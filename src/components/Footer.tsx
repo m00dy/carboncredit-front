@@ -22,6 +22,10 @@ export function Footer() {
           what are carbon markets
         </a>
         <span>·</span>
+        <a href="/what-is-the-voluntary-carbon-market" className="hover:underline">
+          voluntary carbon market
+        </a>
+        <span>·</span>
         <a href="/submit" className="hover:underline">
           submit link
         </a>

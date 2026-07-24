@@ -43,6 +43,12 @@ export function buildSiteSitemap(
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/what-is-the-voluntary-carbon-market`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     ...entries.map((entry) => ({
       url: `${baseUrl}/post/${entry.id}`,
       lastModified: new Date(entry.updated_at * 1000),
