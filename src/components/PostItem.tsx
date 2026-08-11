@@ -37,14 +37,24 @@ export function PostItem({ post, rank }: PostItemProps) {
               {post.title}
             </Link>
           ) : (
-            <a
-              href={post.url!}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-sm text-[var(--ink)] hover:text-[var(--green-mid)] transition-colors"
-            >
-              {post.title}
-            </a>
+            <>
+              <a
+                href={post.url!}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-sm text-[var(--ink)] hover:text-[var(--green-mid)] transition-colors"
+              >
+                {post.title}
+              </a>
+              <Link
+                href={`/post/${post.id}`}
+                className="shrink-0 text-xs font-medium px-1.5 py-0.5 rounded-md transition-colors hover:bg-[var(--green-light)] hover:text-[var(--green-dark)]"
+                style={{ color: "var(--ink-muted)" }}
+                title="Discuss"
+              >
+                discuss
+              </Link>
+            </>
           )}
 
           {post.domain && (

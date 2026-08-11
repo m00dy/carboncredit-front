@@ -2,14 +2,56 @@ import { fetchUser, fetchUserPosts } from "@/lib/api";
 import { PostItem } from "@/components/PostItem";
 import { formatDate } from "@/lib/time";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://carboncredit.io";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ username: string }>;
-}) {
+}): Promise<Metadata> {
   const { username } = await params;
-  return { title: `${username} – carboncredit.io` };
+
+  try {
+    const profile = await fetchUser(username);
+    const title = `${profile.username} (${profile.karma} karma) | carboncredit.io`;
+    const description = `${profile.username} — ${profile.post_count} posts, ${profile.comment_count} comments, ${profile.karma} karma. Member since ${formatDate(profile.created_at)}.`;
+
+    return {
+      title,
+      description,
+      alternates: { canonical: `${siteUrl}/user/${username}` },
+      openGraph: {
+        title,
+        description,
+        url: `${siteUrl}/user/${username}`,
+        siteName: "carboncredit.io",
+        type: "profile",
+      },
+      twitter: {
+        card: "summary",
+        title,
+        description,
+      },
+    };
+  } catch {
+    return { title: `${username} – carboncredit.io` };
+  }
+}
+
+function profileJsonLd(username: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    name: username,
+    url: `${siteUrl}/user/${username}`,
+    mainEntity: {
+      "@type": "Person",
+      name: username,
+      url: `${siteUrl}/user/${username}`,
+    },
+  };
 }
 
 export default async function UserPage({
@@ -39,6 +81,12 @@ export default async function UserPage({
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(profileJsonLd(profile.username)),
+        }}
+      />
       {/* Profile card */}
       <div className="card p-6 mb-8">
         <div className="flex items-start justify-between gap-4 flex-wrap">

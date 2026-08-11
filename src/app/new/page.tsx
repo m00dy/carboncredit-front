@@ -1,8 +1,30 @@
 import { fetchPosts } from "@/lib/api";
 import { PostItem } from "@/components/PostItem";
 import Link from "next/link";
+import type { Metadata } from "next";
 
 export const revalidate = 30;
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://carboncredit.io";
+
+export const metadata: Metadata = {
+  title: "Newest Posts | carboncredit.io",
+  description:
+    "The latest carbon market, renewable energy, and climate tech news and discussions. Stay current with what the community is talking about.",
+  alternates: { canonical: `${siteUrl}/new` },
+  openGraph: {
+    title: "Newest Posts | carboncredit.io",
+    description: "Latest carbon market and clean energy discussions.",
+    url: `${siteUrl}/new`,
+    siteName: "carboncredit.io",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Newest Posts | carboncredit.io",
+    description: "Latest carbon market and clean energy discussions.",
+  },
+};
 
 export default async function NewPage({
   searchParams,

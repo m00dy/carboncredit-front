@@ -5,6 +5,18 @@ import Image from "next/image";
 
 export const revalidate = 60; // ISR: re-fetch every 60s
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://carboncredit.io";
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "carboncredit.io",
+  url: siteUrl,
+  description: "Community for carbon markets, renewables and clean energy news and discussion.",
+  logo: `${siteUrl}/carbon.png`,
+  sameAs: [],
+};
+
 export default async function HomePage({
   searchParams,
 }: {
@@ -30,6 +42,10 @@ export default async function HomePage({
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
       {/* Hero banner – only on page 1 */}
       {page === 1 && (
         <div

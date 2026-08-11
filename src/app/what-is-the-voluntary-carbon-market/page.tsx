@@ -1,23 +1,99 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://carboncredit.io";
+const canonicalUrl = `${siteUrl}/what-is-the-voluntary-carbon-market`;
+const lastUpdated = "2026-07";
+
 export const metadata: Metadata = {
   title:
     "What is the voluntary carbon market (VCM)? – carboncredit.io",
   description:
     "How the voluntary carbon market works: VCM credits, major standards like Verra and Gold Standard, pricing, additionality, and market trends in 2026.",
+  alternates: { canonical: canonicalUrl },
   openGraph: {
     title: "What is the voluntary carbon market (VCM)?",
     description:
       "How the voluntary carbon market works: standards, pricing, additionality, and market trends.",
+    url: canonicalUrl,
+    siteName: "carboncredit.io",
     type: "article",
+    modifiedTime: new Date(lastUpdated).toISOString(),
+    images: [{ url: "/carbon.png", width: 1200, height: 630, alt: "carboncredit.io" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "What is the voluntary carbon market (VCM)?",
+    description:
+      "How the voluntary carbon market works: standards, pricing, additionality, and market trends.",
+    images: ["/carbon.png"],
+  },
+};
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "What is the voluntary carbon market?",
+  description:
+    "How the voluntary carbon market works: VCM credits, major standards like Verra and Gold Standard, pricing, additionality, and market trends in 2026.",
+  datePublished: new Date(lastUpdated).toISOString(),
+  dateModified: new Date(lastUpdated).toISOString(),
+  author: { "@type": "Organization", name: "carboncredit.io" },
+  publisher: { "@type": "Organization", name: "carboncredit.io" },
+  url: canonicalUrl,
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How does the voluntary carbon market work?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A project developer creates a carbon reduction or removal project. An independent standard (Verra, Gold Standard, CAR, ACR) verifies the reductions are real and additional. Credits are issued at one per ton of CO₂e. Buyers purchase and retire the credits against their own emissions.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is additionality in carbon credits?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Additionality means the emission reduction would not have happened without the carbon revenue. It is the hardest thing to prove in the VCM. A project fails additionality if the forest was already protected, the renewable plant was profitable on its own, or the landowner had no intention of cutting down the trees.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What are the major carbon credit standards?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The major standards are Verra (Verified Carbon Standard, largest), Gold Standard (founded by WWF, emphasizes co-benefits), Climate Action Reserve (CAR, US-focused), American Carbon Registry (ACR, first private registry), and Puro.earth (engineered carbon removal).",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much do carbon credits cost in the VCM?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "VCM credit prices range from $1-5/ton for renewable energy, $2-15/ton for forestry (REDD+), $5-30/ton for soil carbon, $5-15/ton for clean cookstoves, to $100-1,000+/ton for tech-based removals like direct air capture (DAC) and biochar.",
+      },
+    },
+  ],
 };
 
 export default function VoluntaryCarbonMarketPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <nav className="mb-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([articleJsonLd, faqJsonLd]),
+        }}
+      />
+
+      <nav className="mb-6" aria-label="Breadcrumb">
         <Link
           href="/"
           className="text-sm font-medium hover:underline"
@@ -35,7 +111,8 @@ export default function VoluntaryCarbonMarketPage() {
           What is the voluntary carbon market?
         </h1>
         <p className="text-sm mb-8" style={{ color: "var(--ink-muted)" }}>
-          A community-maintained introduction. Last updated July 2026.
+          A community-maintained introduction. Last updated{" "}
+          <time dateTime={lastUpdated}>{lastUpdated}</time>.
         </p>
 
         <div

@@ -1,22 +1,90 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://carboncredit.io";
+const canonicalUrl = `${siteUrl}/what-are-carbon-credits`;
+const lastUpdated = "2026-07";
+
 export const metadata: Metadata = {
   title: "What are carbon credits? A community introduction – carboncredit.io",
   description:
     "What carbon credits are, how carbon markets work, voluntary vs compliance, and the difference between credits and offsets. A community-maintained introduction.",
+  alternates: { canonical: canonicalUrl },
   openGraph: {
     title: "What are carbon credits? A community introduction",
     description:
       "What carbon credits are, how carbon markets work, and the difference between credits and offsets.",
+    url: canonicalUrl,
+    siteName: "carboncredit.io",
     type: "article",
+    modifiedTime: new Date(lastUpdated).toISOString(),
+    images: [{ url: "/carbon.png", width: 1200, height: 630, alt: "carboncredit.io" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "What are carbon credits? A community introduction",
+    description:
+      "What carbon credits are, how carbon markets work, and the difference between credits and offsets.",
+    images: ["/carbon.png"],
+  },
+};
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "What are carbon credits?",
+  description:
+    "What carbon credits are, how carbon markets work, voluntary vs compliance, and the difference between credits and offsets.",
+  datePublished: new Date(lastUpdated).toISOString(),
+  dateModified: new Date(lastUpdated).toISOString(),
+  author: { "@type": "Organization", name: "carboncredit.io" },
+  publisher: { "@type": "Organization", name: "carboncredit.io" },
+  url: canonicalUrl,
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How do carbon credits work?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A project reduces or removes emissions, that reduction is verified by a third-party standard (Verra, Gold Standard, CAR), credits are issued for each verified ton of CO₂e, and a buyer purchases and retires the credit to offset their own emissions.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the difference between voluntary and compliance carbon markets?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Compliance markets are government-mandated cap-and-trade systems (EU ETS, California Cap-and-Trade) where companies must hold allowances to cover emissions. The voluntary carbon market (VCM) is where companies and individuals buy credits voluntarily to meet net-zero pledges, with prices varying by project type, location, and co-benefits.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the difference between carbon credits and carbon offsets?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A carbon credit is a tradeable permit to emit one ton of CO₂, while a carbon offset is the actual act of reducing or removing one ton of CO₂ from the atmosphere. Credits are tradeable instruments; offsets are the environmental outcome.",
+      },
+    },
+  ],
 };
 
 export default function WhatAreCarbonCreditsPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <nav className="mb-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([articleJsonLd, faqJsonLd]),
+        }}
+      />
+
+      <nav className="mb-6" aria-label="Breadcrumb">
         <Link
           href="/"
           className="text-sm font-medium hover:underline"
@@ -37,7 +105,8 @@ export default function WhatAreCarbonCreditsPage() {
           className="text-sm mb-8"
           style={{ color: "var(--ink-muted)" }}
         >
-          A community-maintained introduction. Last updated July 2026.
+          A community-maintained introduction. Last updated{" "}
+          <time dateTime={lastUpdated}>{lastUpdated}</time>.
         </p>
 
         <div

@@ -125,24 +125,21 @@ export default function PostPage() {
 
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-baseline gap-2">
-              {post.url ? (
-                <a
-                  href={post.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xl font-bold leading-snug hover:underline"
-                  style={{ color: "var(--ink)" }}
-                >
-                  {post.title}
-                </a>
-              ) : (
-                <h1
-                  className="text-xl font-bold leading-snug"
-                  style={{ color: "var(--ink)" }}
-                >
-                  {post.title}
-                </h1>
-              )}
+              <h1 className="text-xl font-bold leading-snug" style={{ color: "var(--ink)" }}>
+                {post.url ? (
+                  <a
+                    href={post.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                    style={{ color: "var(--ink)" }}
+                  >
+                    {post.title}
+                  </a>
+                ) : (
+                  post.title
+                )}
+              </h1>
 
               {post.domain && (
                 <span

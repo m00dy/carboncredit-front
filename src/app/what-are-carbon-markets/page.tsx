@@ -1,22 +1,90 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://carboncredit.io";
+const canonicalUrl = `${siteUrl}/what-are-carbon-markets`;
+const lastUpdated = "2026-07";
+
 export const metadata: Metadata = {
   title: "What are carbon markets? A community introduction – carboncredit.io",
   description:
     "How carbon markets work: compliance vs voluntary markets, carbon pricing, cap-and-trade, and the trends shaping the global carbon market in 2026.",
+  alternates: { canonical: canonicalUrl },
   openGraph: {
     title: "What are carbon markets? A community introduction",
     description:
       "How compliance and voluntary carbon markets work, cap-and-trade, carbon pricing, and market trends.",
+    url: canonicalUrl,
+    siteName: "carboncredit.io",
     type: "article",
+    modifiedTime: new Date(lastUpdated).toISOString(),
+    images: [{ url: "/carbon.png", width: 1200, height: 630, alt: "carboncredit.io" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "What are carbon markets? A community introduction",
+    description:
+      "How compliance and voluntary carbon markets work, cap-and-trade, carbon pricing, and market trends.",
+    images: ["/carbon.png"],
+  },
+};
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "What are carbon markets?",
+  description:
+    "How carbon markets work: compliance vs voluntary markets, carbon pricing, cap-and-trade, and the trends shaping the global carbon market in 2026.",
+  datePublished: new Date(lastUpdated).toISOString(),
+  dateModified: new Date(lastUpdated).toISOString(),
+  author: { "@type": "Organization", name: "carboncredit.io" },
+  publisher: { "@type": "Organization", name: "carboncredit.io" },
+  url: canonicalUrl,
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is the difference between compliance and voluntary carbon markets?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Compliance markets are government-regulated cap-and-trade systems (EU ETS, California, China ETS) where companies must hold allowances equal to their emissions. Voluntary carbon markets (VCM) are where companies and individuals buy credits voluntarily to meet net-zero pledges and ESG goals, with prices varying by project type.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How does cap-and-trade work?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A government sets a cap on total emissions for covered sectors. Allowances are distributed to emitters, either freely or via auction. Companies that reduce emissions below their cap can sell surplus allowances. Those that exceed must buy. The cap tightens over time, reducing supply and driving up the carbon price.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What are the major carbon markets?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The largest carbon markets are the EU Emissions Trading System (EU ETS), California Cap-and-Trade (linked with Quebec), China National ETS (largest by covered emissions), the UK ETS, and CORSIA (the UN aviation offsetting scheme).",
+      },
+    },
+  ],
 };
 
 export default function WhatAreCarbonMarketsPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <nav className="mb-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([articleJsonLd, faqJsonLd]),
+        }}
+      />
+
+      <nav className="mb-6" aria-label="Breadcrumb">
         <Link
           href="/"
           className="text-sm font-medium hover:underline"
@@ -34,7 +102,8 @@ export default function WhatAreCarbonMarketsPage() {
           What are carbon markets?
         </h1>
         <p className="text-sm mb-8" style={{ color: "var(--ink-muted)" }}>
-          A community-maintained introduction. Last updated July 2026.
+          A community-maintained introduction. Last updated{" "}
+          <time dateTime={lastUpdated}>{lastUpdated}</time>.
         </p>
 
         <div
