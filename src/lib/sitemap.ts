@@ -1,59 +1,43 @@
 import type { MetadataRoute } from "next";
 
-import type { SitemapEntry } from "./types";
-
 export function normalizeSiteUrl(siteUrl: string): string {
   return siteUrl.endsWith("/") ? siteUrl.slice(0, -1) : siteUrl;
 }
 
-export function buildSiteSitemap(
-  entries: SitemapEntry[],
-  siteUrl: string
-): MetadataRoute.Sitemap {
+// Live feeds. The list genuinely changes, so the sitemap date is the fetch
+// time. Google ignores a lastmod value that never moves.
+const LIVE_FEED_PATHS = ["/", "/new"];
+
+// Fixed pages. `lastModified` is the real content date, kept in sync with the
+// `lastUpdated` constant in each editorial page. It is omitted where the page
+// has no content of its own.
+const FIXED_PAGES: { path: string; lastModified?: string }[] = [
+  { path: "/submit" },
+  { path: "/what-are-carbon-credits", lastModified: "2026-07-01" },
+  { path: "/what-are-carbon-markets", lastModified: "2026-07-01" },
+  { path: "/what-is-the-voluntary-carbon-market", lastModified: "2026-07-01" },
+];
+
+/**
+ * The only pages listed in sitemap.xml.
+ *
+ * `/post/*` is deliberately absent. There are ~19k of them, they mostly
+ * restate headlines published elsewhere, and listing them all tells Google the
+ * site is a content farm. Add a hand-picked subset once Search Console shows
+ * which ones earn impressions.
+ */
+export function buildSiteSitemap(siteUrl: string): MetadataRoute.Sitemap {
   const baseUrl = normalizeSiteUrl(siteUrl);
+  const now = new Date();
 
   return [
-    {
-      url: `${baseUrl}/`,
-      lastModified: new Date(),
-      changeFrequency: "hourly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/new`,
-      lastModified: new Date(),
-      changeFrequency: "hourly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/submit`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/what-are-carbon-credits`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/what-are-carbon-markets`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/what-is-the-voluntary-carbon-market`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    ...entries.map((entry) => ({
-      url: `${baseUrl}/post/${entry.id}`,
-      lastModified: new Date(entry.updated_at * 1000),
-      changeFrequency: "daily" as const,
-      priority: 0.7,
+    ...LIVE_FEED_PATHS.map((path) => ({
+      url: `${baseUrl}${path}`,
+      lastModified: now,
+    })),
+    ...FIXED_PAGES.map(({ path, lastModified }) => ({
+      url: `${baseUrl}${path}`,
+      ...(lastModified ? { lastModified: new Date(lastModified) } : {}),
     })),
   ];
 }

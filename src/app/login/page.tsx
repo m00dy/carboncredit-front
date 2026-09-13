@@ -1,7 +1,10 @@
+import type { Metadata } from "next";
 import { LoginForm } from "@/components/LoginForm";
 
-export const metadata = {
+// Auth form with no content of its own. Keep it out of the index.
+export const metadata: Metadata = {
   title: "Log in – carboncredit.io",
+  robots: { index: false, follow: true },
 };
 
 export default function LoginPage() {

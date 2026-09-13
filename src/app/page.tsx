@@ -2,8 +2,15 @@ import { fetchPosts } from "@/lib/api";
 import { PostItem } from "@/components/PostItem";
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 
 export const revalidate = 60; // ISR: re-fetch every 60s
+
+// Paginated feed views (?page=N) inherit this and canonicalize to the bare
+// path, which is how /new already handles its own pagination.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://carboncredit.io";
 

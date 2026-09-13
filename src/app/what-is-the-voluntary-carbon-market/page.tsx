@@ -124,7 +124,7 @@ export default function VoluntaryCarbonMarketPage() {
             style={{ color: "var(--ink-secondary)" }}
           >
             The voluntary carbon market (VCM) is where companies, organizations,
-            and individuals buy carbon credits voluntarily. They're not legally
+            and individuals buy carbon credits voluntarily. They’re not legally
             required to. They buy to meet self-imposed climate goals, net-zero
             pledges, or ESG commitments. The VCM was worth ~$2 billion in 2023.
           </p>

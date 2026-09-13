@@ -1,7 +1,10 @@
+import type { Metadata } from "next";
 import { RegisterForm } from "@/components/RegisterForm";
 
-export const metadata = {
+// Auth form with no content of its own. Keep it out of the index.
+export const metadata: Metadata = {
   title: "Register – carboncredit.io",
+  robots: { index: false, follow: true },
 };
 
 export default function RegisterPage() {

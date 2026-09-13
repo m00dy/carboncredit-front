@@ -11,29 +11,33 @@ describe("normalizeSiteUrl", () => {
 });
 
 describe("buildSiteSitemap", () => {
-  it("includes static routes and imported posts", () => {
-    const sitemap = buildSiteSitemap(
-      [{ id: "post-123", updated_at: 1_700_000_000 }],
-      "https://carboncredit.io"
+  const sitemap = buildSiteSitemap("https://carboncredit.io");
+  const urls = sitemap.map((entry) => entry.url);
+
+  it("lists the indexable pages", () => {
+    expect(urls).toContain("https://carboncredit.io/");
+    expect(urls).toContain("https://carboncredit.io/new");
+    expect(urls).toContain("https://carboncredit.io/submit");
+    expect(urls).toContain(
+      "https://carboncredit.io/what-are-carbon-credits"
+    );
+    expect(urls).toContain(
+      "https://carboncredit.io/what-are-carbon-markets"
+    );
+    expect(urls).toContain(
+      "https://carboncredit.io/what-is-the-voluntary-carbon-market"
+    );
+  });
+
+  it("excludes post pages from the sitemap", () => {
+    expect(urls.some((url) => url.includes("/post/"))).toBe(false);
+  });
+
+  it("dates editorial pages from their content, not the request time", () => {
+    const credits = sitemap.find(
+      (entry) => entry.url === "https://carboncredit.io/what-are-carbon-credits"
     );
 
-    expect(
-      sitemap.some((entry) => entry.url === "https://carboncredit.io/")
-    ).toBe(true);
-    expect(
-      sitemap.some(
-        (entry) =>
-          entry.url === "https://carboncredit.io/what-are-carbon-credits"
-      )
-    ).toBe(true);
-    expect(
-      sitemap.some(
-        (entry) =>
-          entry.url === "https://carboncredit.io/what-are-carbon-markets"
-      )
-    ).toBe(true);
-    expect(
-      sitemap.some((entry) => entry.url === "https://carboncredit.io/post/post-123")
-    ).toBe(true);
+    expect(credits?.lastModified).toEqual(new Date("2026-07-01"));
   });
 });

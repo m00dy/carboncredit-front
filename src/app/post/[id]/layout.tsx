@@ -30,7 +30,9 @@ export async function generateMetadata(
     const publishedTime = new Date(post.created_at * 1000).toISOString();
 
     return {
-      title: `${post.title} | carboncredit.io`,
+      // Headlines are already long; the "| carboncredit.io" suffix pushed most
+      // over 60 characters and Google appends the site name in results anyway.
+      title: post.title,
       description,
       alternates: {
         canonical: `${siteUrl}/post/${id}`,
@@ -61,7 +63,7 @@ export async function generateMetadata(
         images: ["/carbon.png"],
       },
     };
-  } catch (error) {
+  } catch {
     return {
       title: "Post | carboncredit.io",
       description: "View post on carboncredit.io",
