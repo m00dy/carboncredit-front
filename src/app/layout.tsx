@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://carboncredit.io"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://carboncredit.io"),
   title: "carboncredit.io – Green Energy & Carbon Community",
   description:
     "A link aggregator for carbon credits, renewables, and green energy. Share and discuss the latest in clean energy.",
@@ -40,6 +40,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <head>
         <script defer src="https://analytics.lemontv.xyz/script.js" data-website-id="c391a198-3474-4f00-bf90-78ecd8d888d2"></script>
+        <script src="https://m.evenstamp.com/embed/v1.js" data-site-key="es_pub_1c0acbec392b4e4350be6fa38b81f4967cba4b8034b1105070a3bdd28cae84ee" async></script>
       </head>
       <body className="min-h-screen flex flex-col bg-[#f5f7f2] w-full overflow-x-hidden">
         <AuthProvider>

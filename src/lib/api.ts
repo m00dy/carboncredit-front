@@ -8,8 +8,10 @@ import type {
   VoteResponse,
 } from "./types";
 
+// `||` not `??`: the Docker build sets these from ARG, and an unset arg makes
+// them an empty string rather than undefined.
 const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080";
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
 
 // ---------------------------------------------------------------------------
 // Internal helper
